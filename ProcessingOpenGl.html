@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Processing</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OPENSCAD GOSPEL</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href= "index.html" >Home</a>
+                      <!--<a href="index.html"></a>--></li>
+                      <li><a href="WorkExperience.html">Work Experience</a></li>
+                      
+                      <li><a href="Jayant Tiwari.pdf">Resumé</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>3d sculpturing</h2>
+							<p>OPENSCAD DEMI-GOD</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<h3>Embedded models</h3>
+								<h4>Well hello there!</h4>
+
+<p>
+Here are models I’ve worked on using code first CAD software such as OPENSCAD. This allows for more modular design and code written such that the design can be re-created. 
+</p>
+<p>
+This is an excellent tool for algorithm visualization where one can create 3d representation of fractals, Fibonacci sequence and more.
+</p>
+
+								<iframe width="640" height="480" src="https://sketchfab.com/models/aee7d65562204fc7960ad8c2f3fed02e/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+
+<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    <a href="https://sketchfab.com/models/aee7d65562204fc7960ad8c2f3fed02e?utm_source=oembed&utm_medium=embed&utm_campaign=aee7d65562204fc7960ad8c2f3fed02e" target="_blank" style="font-weight: bold; color: #1CAAD9;">Half Gear</a>
+    by <a href="https://sketchfab.com/j2tiwari?utm_source=oembed&utm_medium=embed&utm_campaign=aee7d65562204fc7960ad8c2f3fed02e" target="_blank" style="font-weight: bold; color: #1CAAD9;">j2tiwari</a>
+    on <a href="https://sketchfab.com?utm_source=oembed&utm_medium=embed&utm_campaign=aee7d65562204fc7960ad8c2f3fed02e" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+</p>
+
+<pre><code>
+   numOfTeeth = 25;
+   angle = 180;
+   radius = .25;
+   height = .25;
+   for(i = [0: angle/numOfTeeth: angle]){
+       
+        translate([cos(i),sin(i),0]){rotate([0,0,i]){
+            difference(){
+                cylinder( h =height, r = radius, $fn = 3, center = true);
+
+                translate([radius - 0.04,0,0]){
+                    cylinder(h = height+.1, r = .045, $fn = 3, center = true);
+                    }
+                }
+            } 
+        } 
+    }
+   
+   
+   difference(){
+        cube(size = [1.75,.5*cos(30),height], center = true);
+  
+   
+        cylinder( h = height + .1, r = 0.1, $fn = 1000, center = true);
+        translate([0,0,height / 2]){
+            cylinder( h =  .25*height, r = 0.17, $fn = 6, center = true);    
+        }
+        
+   }
+
+</code></pre>
+								<iframe width="640" height="480" src="https://sketchfab.com/models/b4538701c58647f1b571caa12c466ea5/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+
+								<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    							<a href="https://sketchfab.com/models/b4538701c58647f1b571caa12c466ea5?utm_source=oembed&utm_medium=embed&utm_campaign=b4538701c58647f1b571caa12c466ea5" target="_blank" style="font-weight: bold; color: #1CAAD9;">Archmedial</a>
+    							by <a href="https://sketchfab.com/j2tiwari?utm_source=oembed&utm_medium=embed&utm_campaign=b4538701c58647f1b571caa12c466ea5" target="_blank" style="font-weight: bold; color: #1CAAD9;">j2tiwari</a>
+    							on <a href="https://sketchfab.com?utm_source=oembed&utm_medium=embed&utm_campaign=b4538701c58647f1b571caa12c466ea5" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+								</p>
+
+
+
+								<pre><code>
+import math
+import swag
+import itertools
+numOfVertex = 30000
+step = 3 #dont change
+dis = 0.9
+heightFactor = 0.1
+z=0
+point = [[0,0,z],[1,0,z],[math.cos(math.radians(60)),math.sin(math.radians(60)),z]]
+'''
+print "{}:  {}".format("point[0]", point[0])
+print "{}:  {}".format("point[1]", point[1])
+print "{}:  {}".format("point[2]", point[2])
+'''
+for i in range (3,numOfVertex):
+  xdiff = (point[i-3][0] - point[i-1][0])
+  ydiff = (point[i-3][1] - point[i-1][1])
+  '''
+  print "{}:  {}".format("xdiff", xdiff)
+  print "{}:  {}".format("ydiff", ydiff)
+  '''
+  angle = math.degrees(math.atan(ydiff / xdiff))
+  '''
+  print "{}:  {}".format("angle", angle)
+  '''
+  if(xdiff < 0 and ydiff < 0):
+    angle = angle + 180 
+    
+  elif(xdiff < 0 and ydiff > 0):
+    angle = angle + 180
+    
+  elif(xdiff >0 and ydiff <0):
+    angle = angle + 360
+
+  elif(xdiff > 0 and ydiff >0):
+    '''
+    print ("normal")
+    '''
+  else: '''
+    print("check")
+    '''
+    
+  x = point[i-3][0] + dis * math.cos(math.radians(angle))
+  y = point[i-3][1] + dis * math.sin(math.radians(angle))
+  '''
+  print "{}:  {}".format("x", x)
+  print "{}:  {}".format("y", y)
+  print "{}:  {}".format("angle", angle)
+  '''
+  newPoint = [[x,y,0]]
+  '''print (newPoint)'''
+  point = point + newPoint
+
+for k in range( 0,numOfVertex,step):
+    point[k][2] = k / 3 * heightFactor
+    point[k+1][2] = k/3 * heightFactor
+    point[k+2][2] = k/3 * heightFactor
+   # print()
+
+face = [[0,1,2]]
+
+for m in range(3,len(point),3):
+  test = [[m,m+1,m+2]]
+  face = face + test
+
+
+for o in range(0,len(point),3):
+  face = face + [[o , o+1, o + 3]]
+  face = face + [[o+1,o+3,o+4]]
+
+  face = face + [[o+2,o+4,o+5]]
+  face = face + [[o+1,o+2,o+4]]
+
+  face = face + [[o,o+5,o+3]]
+  face = face + [[o+2, o, o+5]]
+  
+#print (point)
+print("  ")
+#print (face)
+
+print "polyhedron ( points = {} , faces = {} );".format(point,face)
+</code></pre>
+
+								
+
+								<h4></h4>
+								<p></p>
+
+								<p></p>
+
+								<iframe width="640" height="480" src="https://sketchfab.com/models/6eb8e6a1574d4313acdcf1489cda9b52/embed?autospin=0.2&amp;autostart=1&amp;blending=1&amp;ui_controls=0&amp;ui_infos=0" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+
+<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    <a href="https://sketchfab.com/models/6eb8e6a1574d4313acdcf1489cda9b52?utm_source=oembed&utm_medium=embed&utm_campaign=6eb8e6a1574d4313acdcf1489cda9b52" target="_blank" style="font-weight: bold; color: #1CAAD9;">Torodial Zip</a>
+    by <a href="https://sketchfab.com/j2tiwari?utm_source=oembed&utm_medium=embed&utm_campaign=6eb8e6a1574d4313acdcf1489cda9b52" target="_blank" style="font-weight: bold; color: #1CAAD9;">j2tiwari</a>
+    on <a href="https://sketchfab.com?utm_source=oembed&utm_medium=embed&utm_campaign=6eb8e6a1574d4313acdcf1489cda9b52" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+</p>
+
+<pre><code>
+for(i = [0:360/20:360]){
+    rotate([0,0,i]){
+    translate([101,0,0]){
+    for(j = [0:1:360 * 10]){
+    
+    rotate([0,j,0]){
+        translate([ 20*cos(0.1*j),15*sin(0.1*j),0]) cylinder(r = 1, $fn = 3);
+    }
+}
+}
+}
+}
+<code></pre>
+
+
+
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+            <ul class="icons">
+              <!--<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>-->
+              <!--
+              <li><a href="https://www.facebook.com/jayant.tiwari.315" class="icon fa-facebook"><span class="label">Facebook</span></a></li>-->
+              <!--<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+              <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>-->
+              <li><a href="mailto:j2tiwari@uwaterloo.ca?Subject=Web:" target="_top" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+              <li><a href="#" class="icon fa-github"><span class="label">Email</span></a></li>
+              <li><a href="https://www.linkedin.com/profile/view?id=AAIAABtPEYoB-pcenn4EtoHBXrRdvVu7KgLXH5s&trk=nav_responsive_tab_profile_pic" class="icon fa-linkedin"><span class="label">Email</span></a></li>
+
+            </ul>
+            <ul class="copyright">
+              <li>&copy; Jayant Tiwari</li>
+            </ul>
+          </footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,9 @@
+IOS APP FLEEK
+
+A group project taken on by me and my friend, where we redesign an even planner, and with cooperation from local recreation center.
+
+the desktop application is made using C#, which encorporates google maps, and sends the required parameter to a cloud service(SQL database). Next, the IOS application will connect to the database and fetch the data and display them.
+
+In addition, events can be created on the IOS app as well and send the data to cloud database.
+
+<Insert github link>
